@@ -1,5 +1,12 @@
-extends layout
+doctype html
+html(ng-app="todoApp")
+  head
+    title TKG TODO
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body(ng-controller="todoController")
+    h1 TKG TODO
+    p {{todos}}
 
-block content
-  h1= title
-  p Welcome to #{title}
+    script(type='text/javascript' src='/javascripts/vendor/angular/angular.min.js')
+    script(type='text/javascript' src='/javascripts/app.js')
+    script(type='text/javascript' src='/javascripts/controllers/index_controller.js')
