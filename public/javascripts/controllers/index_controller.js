@@ -1,25 +1,28 @@
 'use strict';
 
-var controllers = angular.module('todoApp', []);
+var controllers = angular.module('todoApp', ['dndLists']);
 
-controllers.controller('todoController', ['$scope', '$http',
-    function($scope, $http) {
-      $scope.todos = {
-        current: [
-          {
-            title: 'work'
-          }
-        ],
-        backlog: [
-          {
-            title: 'lunch'
-          }
-        ],
-        icebox: [
-          {
-            title: 'sleep'
-          }
+controllers.controller('todoController', function() {
+    this.todos = [
+      {
+        type: 'current',
+        todos: [
+          { title: 'work' },
+          { title: 'work2' },
+          { title: 'work3'}
+        ]
+      },
+      {
+        type: 'backlog',
+        todos: [
+          { title: 'work' }
+        ]
+      },
+      {
+        type: 'icebox',
+        todos: [
+          { title: 'lunch' }
         ]
       }
-    }
-]);
+  ]
+});
