@@ -3,6 +3,7 @@
   .col-md-6(ng-repeat="typeItem in vm.todos")
     .row
       h2{{typeItem.type}}
+      button(ng-click="vm.addTodo(typeItem)") Add
       ul(dnd-list="typeItem.todos")
         li(
           ng-repeat="todo in typeItem.todos"

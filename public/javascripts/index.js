@@ -25,6 +25,10 @@ function todoListCtrl() {
         ]
       }
   ]
+
+  this.addTodo = function(type) {
+    type.todos.unshift({title: 'new todo'});
+  }
 };
 
 app.directive('todolist', function() {
