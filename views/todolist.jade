@@ -1,0 +1,12 @@
+.todoBody
+  h2 Todo List
+  .col-md-6(ng-repeat="typeItem in vm.todos")
+    .row
+      h2{{typeItem.type}}
+      ul(dnd-list="typeItem.todos")
+        li(
+          ng-repeat="todo in typeItem.todos"
+          dnd-draggable="todo"
+          dnd-effect-allowed="move"
+          dnd-moved="typeItem.todos.splice($index, 1)"
+        ){{todo.title}}

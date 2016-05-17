@@ -1,8 +1,8 @@
 'use strict';
 
-var controllers = angular.module('todoApp', ['dndLists']);
+var app = angular.module('todoApp', ['dndLists']);
 
-controllers.controller('todoController', function() {
+function todoListCtrl() {
     this.todos = [
       {
         type: 'current',
@@ -25,4 +25,15 @@ controllers.controller('todoController', function() {
         ]
       }
   ]
+};
+
+app.directive('todolist', function() {
+  return {
+    restrict: "E",
+    templateUrl: '/todolist',
+    controller: todoListCtrl,
+    controllerAs: 'vm'
+  }
 });
+
+angular.bootstrap(document.body, [app.name]);
