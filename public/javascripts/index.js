@@ -53,7 +53,8 @@ app.directive('todolist', function() {
     bindToController: true,
     templateUrl: '/todolist',
     controller: todoListCtrl,
-    controllerAs: 'vm'
+    controllerAs: 'vm',
+    scope: {}
     }
 });
 
