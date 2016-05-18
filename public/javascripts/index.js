@@ -57,6 +57,6 @@ app.directive('todolist', function() {
     }
 });
 
-angular.element(document).ready(function() {
-  angular.bootstrap(document.body, [app.name]);
-});
+//angular.element(document).ready(function() {
+//  angular.bootstrap(document.body, [app.name]);
+//});
