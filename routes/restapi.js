@@ -12,18 +12,18 @@ router.all( '/*', function ( req, res, next ) {
 } );
 
 // GET find
-router.get( '/', function ( req, res ) {
-    mongo.find( 'mean', {}, {},
-        function ( list ) {
-            res.send( list );
-        }
-    );
-} );
+// router.get( '/', function ( req, res ) {
+//   mongo.find( 'mean', {}, {},
+//       function ( list ) {
+//            res.send( list );
+//        }
+//    );
+//} );
 
-// GET find :id
-router.get( '/:id', function ( req, res ) {
-    mongo.find( 'mean', {
-            _id: mongoose.Types.ObjectId( req.params.id )
+// GET find :type
+router.get( '/:type', function ( req, res ) {
+    mongo.find( 'todo_list', {
+          type: req.params.type
         }, {},
         function ( list ) {
             res.send( list );
@@ -32,29 +32,26 @@ router.get( '/:id', function ( req, res ) {
 } );
 
 // POST insert data
-router.post( '/', function ( req, res ) {
-    mongo.insert( 'mean', {
-            name: req.body.name,
-            description: req.body.description,
-            evaluation: req.body.evaluation,
-            picture: req.body.picture
-        }, {},
-        function ( result ) {
-            res.send( result );
-        }
-    );
-} );
+//router.post( '/', function ( req, res ) {
+//    mongo.insert( 'mean', {
+//            name: req.body.name,
+//            description: req.body.description,
+//            evaluation: req.body.evaluation,
+//            picture: req.body.picture
+//        }, {},
+//        function ( result ) {
+//            res.send( result );
+//        }
+//    );
+//} );
 
 // PUT update data
-router.put( '/:id', function ( req, res ) {
-    mongo.update( 'mean', {
-            _id: mongoose.Types.ObjectId( req.params.id )
-        }, {
-            name: req.body.name,
-            description: req.body.description,
-            evaluation: req.body.evaluation,
-            picture: req.body.picture
-        }, {},
+router.put( '/:type', function ( req, res ) {
+    mongo.update( 'todo_list', {
+          type: req.params.type
+        }, req.body, {
+          upsert: true
+        },
         function ( result ) {
             res.send( result );
         }
@@ -62,16 +59,16 @@ router.put( '/:id', function ( req, res ) {
 } );
 
 // DELETE remove data
-router.delete( '/:id', function ( req, res ) {
-    mongo.remove( 'mean', {
-            _id: mongoose.Types.ObjectId( req.params.id )
-        }, {
-            justOne: false
-        },
-        function ( result ) {
-            res.send( result );
-        }
-    );
-} );
+//router.delete( '/:id', function ( req, res ) {
+//    mongo.remove( 'mean', {
+//            _id: mongoose.Types.ObjectId( req.params.id )
+//        }, {
+//            justOne: false
+//        },
+//        function ( result ) {
+//            res.send( result );
+//        }
+//    );
+//} );
 
 module.exports = router;
