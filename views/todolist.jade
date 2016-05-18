@@ -1,9 +1,9 @@
 .todoBody
   h2 Todo List
-  .col-md-6(ng-repeat="typeItem in vm.todos")
-    .row
+  .row
+    .col-md-4.panel.panel-default(ng-repeat="typeItem in vm.todos")
       h3{{typeItem.type}}
-      button(ng-click="vm.addTodo(typeItem)") Add
+      button.addButton(ng-click="vm.addTodo(typeItem)") Add
       ul(dnd-list="typeItem.todos")
         li(
           ng-repeat="todo in typeItem.todos"

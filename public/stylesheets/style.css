@@ -66,3 +66,11 @@ a {
     background-color: #dff0d8;
     color: #3c763d;
 }
+
+.todoBody h3 {
+  display: inline-block;
+}
+
+.todoBody .addButton {
+  margin-left: 10px
+}
