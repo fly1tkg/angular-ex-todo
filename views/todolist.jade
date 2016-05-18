@@ -11,7 +11,7 @@
           dnd-effect-allowed="move"
           dnd-moved="typeItem.todos.splice($index, 1)"
         )
-          input(ng-model="todo.title")
+          input(ng-model="todo.title" ng-change="vm.todoChanged(typeItem.type)")
           button(ng-click="vm.deleteTodo(typeItem, $index)") Delete
   h3 Debug
   p {{vm.todos}}

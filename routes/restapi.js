@@ -12,13 +12,13 @@ router.all( '/*', function ( req, res, next ) {
 } );
 
 // GET find
-// router.get( '/', function ( req, res ) {
-//   mongo.find( 'mean', {}, {},
-//       function ( list ) {
-//            res.send( list );
-//        }
-//    );
-//} );
+router.get( '/', function ( req, res ) {
+   mongo.find( 'todo_list', {}, {},
+       function ( list ) {
+            res.status(200).send( list );
+        }
+    );
+} );
 
 // GET find :type
 router.get( '/:type', function ( req, res ) {
@@ -49,7 +49,10 @@ router.get( '/:type', function ( req, res ) {
 router.put( '/:type', function ( req, res ) {
     mongo.update( 'todo_list', {
           type: req.params.type
-        }, req.body, {
+        }, {
+          type: req.params.type,
+          todos: req.body.todos
+        }, {
           upsert: true
         },
         function ( result ) {
